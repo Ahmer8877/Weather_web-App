@@ -16,7 +16,10 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
+//screen name list
+
 List<String> screeNames=['HOME','SEARCH','FORCAST'];
+//all screen widgets initialize in list
 List<Widget> widgets=[HomeScreen(),SearchScreen(),Forcast_Screen()];
 
 class _MainScreenState extends State<MainScreen> {
@@ -24,15 +27,21 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
 
+    //initialize index provider
     final indexProvider = context.watch<IndexProvider>();
 
+    //main root of screen
+
     return Scaffold(
+      //app bar
       appBar: AppBar(
         title: Text(screeNames[indexProvider.currentIndex],
           style: TextStyle(fontFamily: 'first',fontWeight: FontWeight.bold,color: Colors.blueAccent),),
         centerTitle: true,
         leading: Padding(padding: EdgeInsets.symmetric(horizontal: 5),
           child: Image.asset('assets/logo/weather.png',height: 25,width: 25,),),
+
+        //app bar actions
         actions: [
           //popUpMenu Button
           PopupMenuButton(

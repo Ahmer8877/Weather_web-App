@@ -5,6 +5,7 @@ import 'package:weather_web/data/models/currentWeather_model/currentWeather_mode
 import 'package:weather_web/data/repositories/weather_repo.dart';
 import 'package:weather_web/utils/showFailureMsg.dart';
 
+//home screen provider with dependency injection
 class  HomeProvider with ChangeNotifier{
 
   WeatherRepo repo;
@@ -12,10 +13,12 @@ class  HomeProvider with ChangeNotifier{
   CurrentModel? current;
   bool isLoading=false;
 
+  //injection
   HomeProvider(this.repo){
     getCurrentWeather('Kamoke');
   }
 
+  // get current wather func. use get current weather
   Future<void> getCurrentWeather(String city)async{
 
     try{

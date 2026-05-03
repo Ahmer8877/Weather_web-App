@@ -18,8 +18,11 @@ TextEditingController search=TextEditingController();
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
+
+    //initialize provider with consumer
     return Consumer<SearchProvider>(
       builder: (context,provider,child) {
+        //main root of screen
         return Scaffold(
 
             body:
@@ -70,8 +73,11 @@ class _SearchScreenState extends State<SearchScreen> {
 
                  SizedBox(height: 15,),
 
+                 //loading state
                  provider.isLoading? Center(child: CircularProgressIndicator(),) : SizedBox(),
-                 
+
+                 //for loop
+
                  for(var item in provider.items)
                    ListTile(
                      onTap: (){

@@ -5,6 +5,8 @@ class SettingSreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    // main root of screen
     return Scaffold(
 
       //app bar
@@ -17,6 +19,8 @@ class SettingSreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: [
+
+            //about section card
             Card(
               child: ListTile(
                 title: Text('About'),

@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "weatherwebapp-8b6fa",
+    "weather": "weatherwebapp-8b6fa"
+  },
+  "targets": {},
+  "etags": {}
+}

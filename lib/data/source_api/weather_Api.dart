@@ -5,9 +5,14 @@ import 'package:weather_web/data/models/My_Response_Models/forcastDay_model.dart
 import 'package:weather_web/data/models/currentWeather_model/currentWeather_model.dart';
 import 'package:weather_web/utils/showFailureMsg.dart';
 
+//Source(API) class
+
 class WeatherApi {
 
+  //web base url
   String baseUrl='http://api.weatherapi.com/v1';
+
+  // getCurrentWeather source
 
   Future<CurrentweatherModel?> getCurrentWeather(String city)async{
 
@@ -22,6 +27,8 @@ class WeatherApi {
     return null;
   }
 
+  //getForcast source
+
   Future<List<Forecastday>> getForcast(String city,int days)async{
     
     try{
@@ -35,7 +42,8 @@ class WeatherApi {
     }
     return [];
   }
-  
+
+  //searchRigion source
   Future<List<search_model>> searchRigion(String city)async{
     
     try{

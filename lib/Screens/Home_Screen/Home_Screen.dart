@@ -8,11 +8,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
+
+    //initialize provider with consumer
     return Consumer<HomeProvider>(
       builder: (context,provider,child) {
+
+        // Skeletonizer(loading state)
         return Skeletonizer(
           enabled: provider.isLoading,
+
+          //main root of screen
+
           child: Scaffold(
               backgroundColor: const Color(0xFF0B1535),
               body: SafeArea(
@@ -20,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     children: [
 
-                      // 🔵 HEADER SECTION
+                      //  HEADER SECTION
                       Container(
                         padding: const EdgeInsets.all(20),
                         child: Column(
@@ -94,7 +100,7 @@ class HomeScreen extends StatelessWidget {
 
                       divider(),
 
-                      // 🌬️ WIND SECTION
+                      //  WIND SECTION
                       sectionTitle("WIND"),
                       cardBox(
                         Row(
@@ -110,7 +116,7 @@ class HomeScreen extends StatelessWidget {
 
                       divider(),
 
-                      // 🌫️ ATMOSPHERE GRID
+                      //  ATMOSPHERE GRID
                       sectionTitle("ATMOSPHERE"),
                       gridSection([
                         gridItem("Pressure", "${provider.current?.pressureMb?? ''}mb"),
@@ -121,7 +127,7 @@ class HomeScreen extends StatelessWidget {
 
                       divider(),
 
-                      // 🔥 THERMAL
+                      // THERMAL
                       sectionTitle("THERMAL"),
                       gridSection([
                         gridItem("Windchill", "${provider.current?.windDegree?? ''}°C"),
@@ -132,7 +138,7 @@ class HomeScreen extends StatelessWidget {
 
                       divider(),
 
-                      // ☀️ SOLAR
+                      //  SOLAR
                       sectionTitle("SOLAR"),
                       gridSection([
                         gridItem("Short Rad", provider.current?.shortRad.toString()??''),
@@ -153,6 +159,9 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+//Extra widgets
+
+//expandedCard widget
 Widget expandedCard(String title, String value) {
   return Expanded(
     child: Container(
@@ -175,6 +184,8 @@ Widget expandedCard(String title, String value) {
   );
 }
 
+//gridItem widget
+
 Widget gridItem(String title, String value) {
   return Container(
     padding: const EdgeInsets.all(10),
@@ -194,6 +205,8 @@ Widget gridItem(String title, String value) {
   );
 }
 
+//gridSection widget
+
 Widget gridSection(List<Widget> items) {
   return Padding(
     padding: const EdgeInsets.all(10),
@@ -206,6 +219,8 @@ Widget gridSection(List<Widget> items) {
   );
 }
 
+//sectionTitle widget
+
 Widget sectionTitle(String title) {
   return Padding(
     padding: const EdgeInsets.all(10),
@@ -217,6 +232,8 @@ Widget sectionTitle(String title) {
   );
 }
 
+//divider widget
+
 Widget divider() {
   return Container(
     height: 1,
@@ -224,6 +241,8 @@ Widget divider() {
     margin: const EdgeInsets.symmetric(vertical: 10),
   );
 }
+
+//cardBox widget
 
 Widget cardBox(Widget child) {
   return Container(

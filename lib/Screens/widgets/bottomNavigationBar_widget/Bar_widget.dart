@@ -10,6 +10,8 @@ class BarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
      final indexProvider=context.watch<IndexProvider>();
 
+     //separate bottom navigation widget
+
     return  Padding(
       padding: const EdgeInsets.all(10),
       child: ClipRRect(
@@ -28,6 +30,7 @@ class BarWidget extends StatelessWidget {
               indexProvider.index=value;
             },
             currentIndex: indexProvider.currentIndex,
+                  // items
             items: [
               BottomNavigationBarItem(icon: Icon(CupertinoIcons.home),label: 'Home'),
               BottomNavigationBarItem(icon: Icon(CupertinoIcons.search),label: 'Search'),

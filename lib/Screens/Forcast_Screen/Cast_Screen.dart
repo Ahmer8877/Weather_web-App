@@ -18,18 +18,23 @@ class _Forcast_ScreenState extends State<Forcast_Screen> {
   @override
   Widget build(BuildContext context) {
 
+    // initialize forecast screen provider
      final  forCastProvider=context.watch<ForcastProvider>();
+     // initialize home screen provider
+
      final  homeProvider=context.watch<HomeProvider>();
 
+     // Skeleton use as loading state
     return Skeletonizer(
       enabled: forCastProvider.isLoading,
+      // main root of app screen
       child: Scaffold(
         backgroundColor: const Color(0xFF0B1535),
         body: SafeArea(
           child:ListView(
             children: [
 
-             // for loop
+             // for loop use getting data
 
               for(var forecast in forCastProvider.forecastList)
           Column(
@@ -180,6 +185,9 @@ class _Forcast_ScreenState extends State<Forcast_Screen> {
   }
 }
 
+//initialize some separate widgets
+
+//dayTAb widgets
 Widget dayTab(String day, String temp, bool active) {
   return Container(
     margin: const EdgeInsets.all(5),
@@ -198,6 +206,8 @@ Widget dayTab(String day, String temp, bool active) {
   );
 }
 
+//sectionTitle widgets
+
 Widget sectionTitle(String title) {
   return Padding(
     padding: const EdgeInsets.all(10),
@@ -208,6 +218,8 @@ Widget sectionTitle(String title) {
     ),
   );
 }
+
+// card widget
 
 Widget card(Widget child) {
   return Container(
@@ -220,6 +232,8 @@ Widget card(Widget child) {
     child: child,
   );
 }
+
+// pill widget
 
 Widget pill(String title, String value) {
   return Expanded(
@@ -242,6 +256,8 @@ Widget pill(String title, String value) {
   );
 }
 
+//infoCard widget
+
 Widget infoCard(String title, String value) {
   return Container(
     margin: const EdgeInsets.all(8),
@@ -261,6 +277,8 @@ Widget infoCard(String title, String value) {
     ),
   );
 }
+
+//progressCard widget
 
 Widget progressCard(String title, String percent) {
   return Container(

@@ -11,12 +11,13 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+  //init state
   @override
   void initState() {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(seconds: 3)); // splash دکھاؤ
+      await Future.delayed(const Duration(seconds: 3));
       if (mounted) {
         context.pushReplacement('/main');
       }
@@ -24,6 +25,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   @override
   Widget build(BuildContext context) {
+
+    //main root of screen
     return Scaffold(
       backgroundColor: const Color(0xFF0A0E21),
       body: Center(
@@ -78,9 +81,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
             const SizedBox(height: 20),
 
-            // ── App Name ──
+            // App Name
             const Text(
-              "Daily News",
+              "Daily Weather Info",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 28,
@@ -102,13 +105,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
             const SizedBox(height: 50),
 
-            //  Loading Indicator
+            //  Loading Indicator(lottie)
             SizedBox(
               width: 300,
               height: 30,
               child: Lottie.asset('assets/loadings/dots.json',fit: BoxFit.fitWidth)
             ),
-
           ],
         ),
       ),

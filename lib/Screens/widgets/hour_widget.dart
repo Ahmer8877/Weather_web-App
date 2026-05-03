@@ -8,6 +8,8 @@ class HourWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    //Every day separate widget
     return  Container(
       width: 60,
       margin: const EdgeInsets.all(5),

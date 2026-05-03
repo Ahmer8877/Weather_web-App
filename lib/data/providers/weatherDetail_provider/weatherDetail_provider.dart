@@ -6,6 +6,7 @@ import 'package:weather_web/data/repositories/weather_repo.dart';
 import '../../../utils/showFailureMsg.dart';
 import '../../models/currentWeather_model/currentWeather_model.dart';
 
+//weather detail screen provider with injection
 class WeatherdetailProvider with ChangeNotifier{
 
   WeatherRepo repo;
@@ -13,8 +14,10 @@ class WeatherdetailProvider with ChangeNotifier{
   CurrentModel? current;
   bool isLoading=false;
 
+  // injection
   WeatherdetailProvider(this.repo);
 
+  // getCurrentWeather func.
   Future<void> getCurrentWeather(String city)async{
 
     try{
